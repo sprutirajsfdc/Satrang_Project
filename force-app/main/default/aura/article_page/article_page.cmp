@@ -1,0 +1,57 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="selectedRecordType" type="String" default=""/>
+    <aura:attribute name="title" type="String" default=""/>
+    <aura:attribute name="question" type="String" default=""/>
+    <aura:attribute name="answer" type="String" default=""/>
+    <aura:attribute name="summary" type="String" default=""/>
+    <aura:attribute name="environment" type="String" default=""/>
+    <aura:attribute name="content" type="String" default=""/>
+    <aura:attribute name="internalResolution" type="String" default=""/>
+    <aura:attribute name="showScreen1" type="Boolean" default="true"/>
+    <aura:attribute name="showScreen2" type="Boolean" default="false"/>
+    <lightning:card iconName="standard:event" title="Knowledge">
+        <aura:if isTrue="{!v.showScreen1}">
+            <!-- Screen 1 -->
+            <div class="slds-p-around_medium">
+                <h2 class="slds-text-heading_medium slds-m-bottom_small">Screen 1<br/>
+        <center><img src="https://satrangtechnology4-dev-ed--c.develop.vf.force.com/resource/1685810083000/background?" style="height: 193px;width: 600px;"></img></center>                 
+                </h2>
+                <!-- Display record type selection options here -->
+                <!-- For example, using lightning:select -->
+                <lightning:select name="recordType" label="Record Type" value="{!v.selectedRecordType}">
+                    <option value="">--None--</option>
+                    <option value="FAQ">Frequently Asked Questions</option>
+                    <option value="HowTo">How-Tos</option>
+                </lightning:select>
+                <br/><br/>
+                <lightning:button variant="brand" label="Next" onclick="{!c.goToScreen2}"/>
+            </div>
+        </aura:if>
+    </lightning:card>
+    <aura:if isTrue="{!v.showScreen2}">
+        <!-- Screen 2 -->
+        <div class="slds-p-around_medium">
+            <h2 class="slds-text-heading_medium slds-m-bottom_small custom-heading">Screen 2:<br/>
+            <center><img src="https://satrangtechnology4-dev-ed--c.develop.vf.force.com/resource/1685810989000/screen2?" style="height: 193px;width: 600px;"></img></center>
+            </h2>
+            <lightning:card class="slds-p-around_medium">
+                <aura:if isTrue="{!v.selectedRecordType=='FAQ'}">
+                    <!-- Display fields for Frequently Asked Questions -->
+                    <lightning:input label="Title" value="{!v.title}" class="slds-m-bottom_small" />
+                    <lightning:textarea label="Question" value="{!v.question}" class="slds-m-bottom_small" />
+                    <lightning:inputRichText label="Answer" value="{!v.answer}" class="slds-m-bottom_small" />
+                </aura:if>
+                <aura:if isTrue="{!v.selectedRecordType == 'HowTo'}">
+                    <!-- Display fields for How-Tos -->
+                    <lightning:input label="Title" value="{!v.title}" class="slds-m-bottom_small" />
+                    <lightning:textarea label="Summary" value="{!v.summary}" class="slds-m-bottom_small" />
+                    <lightning:textarea label="Environment" value="{!v.environment}" class="slds-m-bottom_small" />
+                    <lightning:inputRichText label="Content" value="{!v.content}" placeholder="Enter content here" class="slds-m-bottom_small" />
+                    <lightning:inputRichText label="Internal Resolution" value="{!v.internalResolution}" placeholder="Enter internal resolution here" class="slds-m-bottom_small" />
+                </aura:if>
+            </lightning:card>
+            <br/><br/>
+            <lightning:button variant="brand" label="Save" onclick="{!c.saveArticle}" />
+        </div>
+    </aura:if>
+</aura:component>

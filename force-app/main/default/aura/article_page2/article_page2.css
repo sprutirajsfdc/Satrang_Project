@@ -1,0 +1,24 @@
+.THIS.img{
+    max-width: 100%;
+    height: 20%;
+    width: 20%;
+}
+ .THIS h1 {
+     font-family: "Lucida Console", "Courier New", monospace;
+    font-style: normal;
+     font-size: 30px;
+    color: green;
+   }
+.THIS h2 {
+     font-family: "Lucida Console", "Courier New", monospace;
+    font-style: normal;
+     font-size: 15px;
+    color: Blue;
+     
+   }
+.THIS.slds-m-around--medium{
+     background-image: url('/resource/back1');
+}
+.THIS.slds-page-header{
+    background-image: url('/resource/back2');
+}

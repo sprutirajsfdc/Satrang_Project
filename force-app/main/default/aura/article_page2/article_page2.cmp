@@ -1,0 +1,54 @@
+<aura:component controller="knowledgeController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="reso" type="Knowledge__kav[]"/>
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'Frequently Asked Questions', 'value': 'option1'},
+                                                        {'label': 'How-Tos', 'value': 'option2'}
+                                                        ]"/>
+    <aura:attribute name="value" type="String" default="option1"/>
+    <aura:attribute name="answer" type="String" default=""/>
+    <aura:attribute name="content" type="String" default=""/>
+    <aura:attribute name="selectedRecordType" type="String" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:searchKeyChange" action="{!c.searchKeyChange}"/>
+    <c:article_Search/>
+    
+    <div class="slds-m-around--medium">
+        <div  class="slds-grid slds-wrap">
+            <aura:iteration items="{!v.reso}" var="res">
+                <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+                    <lightning:card iconName="standard:article">
+                        <p class="slds-p-horizontal_small">
+                            <div class="slds-col slds-size_1-of-3">  
+                            </div>
+                            <h2>Name:  {!res.Title}</h2>
+                            <br></br>
+                            <p>Answer :{!res.Answer__c}</p>
+                            <br></br>
+                            <p>Content :{!res.Content__c}</p>
+                            
+                        </p>
+                    </lightning:card>
+                </div>
+            </aura:iteration>
+            
+        </div>
+    </div>
+    <lightning:card title="Based On Radio Button">
+        <div class="slds-p-around--medium">
+        <lightning:radioGroup name="radioGroup"
+                              label="Selec Artile To Enter Details"
+                              options="{! v.options }"
+                              value="{! v.selectedRecordType }"
+                              type="radio"
+                              onchange="{! c.handleRadioChange }" />
+        <aura:if isTrue="{! v.selectedRecordType == 'option1' }">
+            <!-- Display fields for FAQs -->
+            <lightning:inputRichText label="Answer" value="{! v.answer }" class="slds-m-bottom_small" placeholder="Enter Answer here" />
+        </aura:if>
+        <aura:if isTrue="{! v.selectedRecordType == 'option2' }">
+            <!-- Display fields for How-Tos -->
+            <lightning:inputRichText label="Content" value="{! v.content }" placeholder="Enter content here" class="slds-m-bottom_small" />
+        </aura:if>
+    </div>
+    </lightning:card>
+</aura:component>

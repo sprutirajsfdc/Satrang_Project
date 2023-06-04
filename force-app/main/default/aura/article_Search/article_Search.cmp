@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <div class="Img">
+        <lightning:card variant="Narrow" iconName="utility:search" title="Search Article">
+            <div>
+                <input type="text" class="form-control"
+                       placeholder="Search" onkeyup="{!c.searchKeyChange}"/>
+            </div>
+        </lightning:card>
+    </div> 
+</aura:component>
