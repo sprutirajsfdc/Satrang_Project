@@ -1,3 +1,12 @@
+/*
+    @Description        : "Implement a search functionality on this platform, allowing users to search for content by its title."
+    @Author             : Sprutiraj
+    @Last Modified By   : Sprutiraj
+    @Last Modified On   : 04-06-2023
+    @Modification Log   :
+    Ver       Date            Author          Modification
+    1.0    05-06-2023       Sprutiraj        Initial Version
+*/
 public  class knowledgeController {
     @AuraEnabled
     public static List<Knowledge__kav> getarticle(){       

@@ -1,3 +1,12 @@
+/*
+    @Description        : "Implements Roll-Up trigger to Count the No of Insured & No of Active* Policies "
+    @Author             : Sprutiraj
+    @Last Modified By   : Sprutiraj
+    @Last Modified On   : 03-06-2023
+    @Modification Log   :
+    Ver       Date            Author          Modification
+    1.0    04-06-2023       Sprutiraj        Initial Version
+*/
 public class AccountRollupHelper {
     public static void updateAccountRollup(List<Policies__c> policies) {
         // Create a set to store the Account IDs

@@ -1,3 +1,12 @@
+<!--
+    @Description        : The Lightning component allows users to perform a search in Knowledge Articles based on the article title. Additionally, the component dynamically displays the appropriate fields based on the selected record type.  
+    @Author             : Sprutiraj
+    @Last Modified By   : Sprutiraj
+    @Last Modified On   : 04-06-2023
+    @Modification Log   :
+    Ver       Date            Author          Modification
+    1.0    05-06-2023       Sprutiraj        Initial Version
+-->
 <aura:component controller="knowledgeController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
     <aura:attribute name="reso" type="Knowledge__kav[]"/>
     <aura:attribute name="options" type="List" default="[
