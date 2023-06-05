@@ -29,8 +29,8 @@
                 <!-- For example, using lightning:select -->
                 <lightning:select name="recordType" label="Record Type" value="{!v.selectedRecordType}">
                     <option value="">--None--</option>
-                    <option value="FAQ">Frequently Asked Questions</option>
-                    <option value="HowTo">How-Tos</option>
+                    <option value="FAQs">Frequently Asked Questions</option>
+                    <option value="How-Tos">How-Tos</option>
                 </lightning:select>
                 <br/><br/>
                 <lightning:button variant="brand" label="Next" onclick="{!c.goToScreen2}"/>
@@ -44,13 +44,13 @@
             <center><img src="https://satrangtechnology4-dev-ed--c.develop.vf.force.com/resource/1685810989000/screen2?" style="height: 193px;width: 600px;"></img></center>
             </h2>
             <lightning:card class="slds-p-around_medium">
-                <aura:if isTrue="{!v.selectedRecordType=='FAQ'}">
+                <aura:if isTrue="{!v.selectedRecordType=='FAQs'}">
                     <!-- Display fields for Frequently Asked Questions -->
                     <lightning:input label="Title" value="{!v.title}" class="slds-m-bottom_small" />
                     <lightning:textarea label="Question" value="{!v.question}" class="slds-m-bottom_small" />
                     <lightning:inputRichText label="Answer" value="{!v.answer}" class="slds-m-bottom_small" />
                 </aura:if>
-                <aura:if isTrue="{!v.selectedRecordType == 'HowTo'}">
+                <aura:if isTrue="{!v.selectedRecordType == 'How-Tos'}">
                     <!-- Display fields for How-Tos -->
                     <lightning:input label="Title" value="{!v.title}" class="slds-m-bottom_small" />
                     <lightning:textarea label="Summary" value="{!v.summary}" class="slds-m-bottom_small" />

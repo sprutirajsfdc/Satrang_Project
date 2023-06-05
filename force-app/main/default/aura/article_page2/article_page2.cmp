@@ -24,7 +24,7 @@
     <div class="slds-m-around--medium">
         <div  class="slds-grid slds-wrap">
             <aura:iteration items="{!v.reso}" var="res">
-                <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+                <div class="container slds-col slds-size_1-of-1 slds-p-around_small">
                     <lightning:card iconName="standard:article">
                         <p class="slds-p-horizontal_small">
                             <div class="slds-col slds-size_1-of-3">  
